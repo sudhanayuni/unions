@@ -1,0 +1,135 @@
+mysql> show tables ;
++---------------------+
+| Tables_in_employee1 |
++---------------------+
+| cl                  |
+| client              |
+| em                  |
+| emp                 |
+| employee            |
+| employees           |
+| employees_audit     |
+| pr                  |
+| project             |
++---------------------+
+9 rows in set (0.02 sec)
+
+mysql> select * from employee;
++-------+-----------+----------+--------+
+| empId | emplFname | empsname | empAge |
++-------+-----------+----------+--------+
+| 1     | sudha     | reddy    |     22 |
+| 2     | sai       | rachana  |     23 |
+| 3     | sai       | pranathi |     25 |
+| 2     | sneha     | reddy    |     22 |
++-------+-----------+----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from project;
++-------+-------+----------+-------------+
+| prjId | empId | clientId | projectname |
++-------+-------+----------+-------------+
+|   561 |     1 |        3 | project1    |
+|   562 |     2 |        1 | project2    |
+|   563 |     3 |        2 | project3    |
+|   564 |     4 |        4 | project4    |
+|   565 |     7 |        6 | project5    |
++-------+-------+----------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from client;
++----------+-------------+-------------+-----------+
+| clientId | clientFname | clientSname | clientAge |
++----------+-------------+-------------+-----------+
+|        1 | sai         | namrith     |        22 |
+|        2 | sai         | naresh      |        23 |
+|        3 | nani        | sasi        |        25 |
+|        4 | syed        | arfath      |        22 |
+|        5 | sri         | latha       |        23 |
++----------+-------------+-------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select emplFname from employee union select clientFname from client;
++-----------+
+| emplFname |
++-----------+
+| sudha     |
+| sai       |
+| sneha     |
+| nani      |
+| syed      |
+| sri       |
++-----------+
+6 rows in set (0.11 sec)
+
+mysql> select empId from employee union select clientId from client;
++-------+
+| empId |
++-------+
+| 1     |
+| 2     |
+| 3     |
+| 4     |
+| 5     |
++-------+
+5 rows in set (0.00 sec)
+
+mysql> select empId from employee union select prjId from project;
++-------+
+| empId |
++-------+
+| 1     |
+| 2     |
+| 3     |
+| 561   |
+| 562   |
+| 563   |
+| 564   |
+| 565   |
++-------+
+8 rows in set (0.00 sec)
+
+mysql> select prjId from project union select clientSname from client;
++---------+
+| prjId   |
++---------+
+| 561     |
+| 562     |
+| 563     |
+| 564     |
+| 565     |
+| namrith |
+| naresh  |
+| sasi    |
+| arfath  |
+| latha   |
++---------+
+10 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
